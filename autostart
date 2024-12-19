@@ -1,0 +1,18 @@
+# Example autostart file for a labwc LXQt session
+# Applications and commands can be added via 'Session Settings' in LXQt Configuration Centre. LXQt provides the panel and background images 
+# Likewise notifications are made available by LXQt
+
+# Warmer color temperature
+gammastep -O 3350 -b 0.8 >/dev/null 2>&1 &
+# Clipboard setting
+wl-paste --watch cliphist store &
+# Screen off after 3 min
+swayidle -w timeout 180 'wlopm --off \*' resume 'wlopm --on \*' &
+# Suspending can be configured in LXQt Power Management Settings)
+
+# Faster startup for GTK apps:
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2>&1 &
+
+# Configure output directives such as mode, position, scale and transform.
+kanshi >/dev/null 2>&1 &
+# see ~/.config/kanshi/config

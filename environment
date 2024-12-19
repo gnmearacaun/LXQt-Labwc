@@ -1,0 +1,15 @@
+# LXQt labwc environment file
+# Cursor theme and size are imported from LXQt at login. Configure under LXQt in "Appearance → Cursor".
+
+# Scaling for gtk apps
+GDK_SCALE=1.1
+GDK_DPI_SCALE=1.1
+
+QT_QPA_PLATFORMTHEME=qt6ct
+# Firefox, this may not be needed
+MOZ_ENABLE_WAYLAND=1
+
+# Keyboard layout and toggle options are imported only once from LXQt, edit here to change
+# XKB_DEFAULT_LAYOUT=gb
+# XKB_DEFAULT_VARIANT=
+# XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle,grp_led:scroll
