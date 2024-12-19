@@ -111,7 +111,6 @@
     </keybind>
     <keybind key="C-W-w">
       <action name="Execute">
-/usr/bin/grimshot save screen
         <command>/usr/bin/grimshot --wait 10 save screen</command>
       </action>
     </keybind>
