@@ -9,7 +9,7 @@
 
   <!-- window placement on opening, cascade, automatic or center -->
   <placement>
-    <policy>Automatic</policy>
+    <policy>automatic</policy>
   </placement>
 
   <keyboard>
@@ -64,7 +64,10 @@
     <keybind key="W-m">
       <action name="ToggleMagnify"/>
     </keybind>
-    <!-- media player -->
+    <keybind key="W-x">
+      <action name="ToggleDecorations"/>
+    </keybind>
+    <!-- media player control -->
     <keybind key="W-n">
       <!-- <action name="Execute" command="playerctl -p audacious next"/> -->
       <action name="Execute" command="playerctl next"/>
@@ -73,7 +76,7 @@
       <action name="Execute" command="playerctl previous"/>
     </keybind>
     <keybind key="W-,">
-      <action name="Execute" command="playerctl play-pause"/>
+      <action name="Execute" command="playerctl -p audacious play-pause"/>
     </keybind>
     <keybind key="W-f">
       <action name="Execute" command="playerctl position 25+"/>
@@ -82,10 +85,10 @@
       <action name="Execute" command="playerctl position 25-"/>
     </keybind>
     <!-- Workspace navigation -->
-    <keybind key="W-Tab">
+    <keybind key="W-s">
       <action name="NextWindow"/>
     </keybind>
-    <keybind key="W-s">
+    <keybind key="W-Tab">
       <action name="NextWindow"/>
     </keybind>
     <keybind key="W-;">
@@ -191,9 +194,6 @@
     <keybind key="W-F5">
       <action name="execute" command="brightnessctl set 1%-"/>
     </keybind>
-    <keybind key="W-x">
-      <action name="ToggleDecorations"/>
-    </keybind>
   </keyboard>
 
   <theme>
@@ -247,5 +247,5 @@
       <disableWhileTyping>yes</disableWhileTyping>
     </device>
   </libinput>
-
+  
 </labwc_config>
