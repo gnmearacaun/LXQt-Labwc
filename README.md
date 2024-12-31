@@ -2,6 +2,10 @@
 
 Config for running Labwc (Window Manager) in an LXQt (Wayland) session.
 
-Vent themes are to be placed in `~/.local/share/themes/` and can be set in `labwc-tweaks` 
+Vent themes belong in `~/.local/share/themes/` can also be set with `labwc-tweaks` 
 
-screenshots
+
+![screenshot](screenshots/2024-12-31.png)
+ 
+
+![screenshot](screenshots/2024-12-31b.png)
