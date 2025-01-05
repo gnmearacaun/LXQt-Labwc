@@ -1,5 +1,6 @@
 # LXQt labwc environment file
 # Cursor theme and size are imported from LXQt at login. Configure under LXQt in "Appearance → Cursor".
+XCURSOR_THEME=Adwaita
 
 # Scaling for gtk apps
 GDK_SCALE=1.1
