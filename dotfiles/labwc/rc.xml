@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc_config>
+  <!-- Workspace Switcher (0 hide) -->
+  <desktops number="3">
+    <popupTime>3</popupTime>
+  </desktops>
+  <!-- Window placement on opening: cascade, automatic or center -->
+  <placement>
+    <policy>automatic</policy>
+  </placement>
+  <!-- Gap -->
+  <core>
+    <gap>5</gap>
+    <!-- # See labwc-config(5) for details  -->
+  </core>
+
+  <keyboard>
+    <keybind key="W-r">
+      <action name="Execute" command="lxqt-runner"/>
+    </keybind>
+    <!-- Close any application -->
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
+    <!-- Terminals galore -->
+    <keybind key="W-Return">
+      <action name="Execute" command="lxqt-qdbus run alacritty"/>
+    </keybind>
+    <keybind key="W-u">
+      <action name="Execute" command="lxqt-qdbus run foot"/>
+    </keybind>
+    <keybind key="W-i">
+      <action name="Execute" command="lxqt-qdbus run kitty"/>
+    </keybind>
+    <keybind key="W-t">
+      <action name="Execute" command="lxqt-qdbus run qterminal"/>
+    </keybind>
+    <keybind key="W-o">
+      <action name="Execute" command="lxqt-qdbus run qterminal"/>
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="lxqt-qdbus run pcmanfm-qt"/>
+    </keybind>
+    <keybind key="W-5">
+      <action name="Execute" command="lxqt-qdbus run pcmanfm-qt"/>
+    </keybind>
+    <!-- For qterminal dropdown -->
+    <keybind key="W-d">
+      <action name="Execute" command="qterminal -d"/>
+    </keybind>
+    <keybind key="W-.">
+      <action name="Execute" command="qterminal -d"/>
+    </keybind>
+    <keybind key="W-;">
+      <action name="Execute" command="qterminal -d"/>
+    </keybind>
+    <keybind key="F12">
+      <action name="Execute" command="qterminal -d"/>
+    </keybind>
+    <!-- <keybind key="Print"> -->
+    <!--   <action name="Execute" command="lxqt-qdbus run screengrab" /> -->
+    <!-- </keybind> -->
+    <keybind key="W-c">
+      <action name="HideCursor" />
+      <action name="WarpCursor" x="-1" y="-1" />
+    </keybind>
+    <keybind key="W-C-d">
+      <action name="Execute" command="lxqt-qdbus showdesktop" />
+    </keybind>
+    <!-- <keybind key="W-w"> -->
+    <!--   <action name="Execute" command="lxqt-qdbus openmenu" /> -->
+    <!-- </keybind> -->
+    <!-- Powerbutton-->
+    <keybind key="XF86PowerOff">
+      <action name="Execute">
+        <command>lxqt-leave</command>
+      </action>
+    </keybind>
+    <keybind key="W-7">
+      <action name="Execute">
+        <command>lxqt-leave</command>
+      </action>
+    </keybind>
+    <keybind key="W-8">
+      <action name="Execute" command="lxqt-leave --suspend" />
+    </keybind>
+    <keybind key="W-9">
+      <action name="Execute" command="lxqt-leave --hibernate" />
+    </keybind>
+    <keybind key="W-C-0">
+      <action name="Execute" command="lxqt-leave --shutdown" />
+    </keybind>
+
+    <!-- Screenshots. Requires the packages grim, slurp and sway-contrib -->
+    <!-- Grimshot will write image files to XDG_SCREENSHOTS_DIR if this is set (or defined in user-dirs.dir), or otherwise fall back to XDG_PICTURES_DIR. XDG folders can be set in LXQt Session Settings -->
+    <keybind key="W-y">
+      <action name="Execute" command="/usr/bin/grimshot save screen"/>
+    </keybind>
+    <keybind key="W-C-y">
+      <action name="Execute" command="/usr/bin/grimshot save area"/>
+    </keybind>
+    <keybind key="W-S-y">
+      <action name="Execute" command="/usr/bin/grimshot --wait 10 save screen"/>
+    </keybind>
+    <!-- Windows -->
+    <keybind key="W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="W-w">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <!-- <keybind key="W-C-f"> -->
+    <!--   <action name="ToggleFullscreen"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-?"> -->
+    <!--   <action name="ToggleMagnify"/> -->
+    <!-- </keybind> -->
+    <keybind key="W-x">
+      <action name="ToggleDecorations"/>
+    </keybind>
+    <keybind key="W-S-m">
+      <action name="Iconify"/>
+    </keybind>
+    <!-- media player control -->
+    <keybind key="W-n">
+      <!-- <action name="Execute" command="playerctl -p audacious next"/> -->
+      <action name="Execute" command="playerctl next"/>
+    </keybind>
+    <keybind key="W-p">
+      <action name="Execute" command="playerctl previous"/>
+    </keybind>
+    <keybind key="W-z">
+      <action name="Execute" command="playerctl -p audacious play-pause"/>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute" command="playerctl position 25+"/>
+    </keybind>
+    <keybind key="W-b">
+      <action name="Execute" command="playerctl position 25-"/>
+    </keybind>
+    <keybind key="W-s">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="W-,">
+      <action name="NextWindow"/>
+    </keybind>
+    <!-- GoToDesktop left and right with -->
+    <keybind key="W-h">
+      <action name="GoToDesktop" to="left"/>
+    </keybind>
+    <keybind key="W-j">
+      <action name="GoToDesktop" to="left"/>
+    </keybind>
+    <keybind key="W-k">
+      <action name="GoToDesktop" to="right"/>
+    </keybind>
+    <keybind key="W-l">
+      <action name="GoToDesktop" to="right"/>
+    </keybind>
+    <keybind key="W-a">
+      <action name="GoToDesktop" to="left"/>
+    </keybind>
+    <keybind key="W-g">
+      <action name="GoToDesktop" to="right"/>
+    </keybind>
+    <!-- GoToDesktop by number -->
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1"/>
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2"/>
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3"/>
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4"/>
+    </keybind>
+    <keybind key="C-W-h">
+      <action name="SnapToEdge" direction="left"/>
+    </keybind>
+    <keybind key="C-W-j">
+      <action name="SnapToEdge" direction="down"/>
+    </keybind>
+    <keybind key="C-W-k">
+      <action name="SnapToEdge" direction="up"/>
+    </keybind>
+    <keybind key="C-W-l">
+      <action name="SnapToEdge" direction="right"/>
+    </keybind>
+    <!-- SendToDesktop -->
+    <keybind key="S-W-h">
+      <action name="SendToDesktop" to="left"/>
+    </keybind>
+    <keybind key="S-W-r">
+      <action name="SendToDesktop" to="right"/>
+    </keybind>
+    <keybind key="S-W-h">
+      <action name="SendToDesktop" to="left"/>
+    </keybind>
+    <keybind key="S-W-1">
+      <action name="SendToDesktop" to="1"/>
+    </keybind>
+    <keybind key="S-W-2">
+      <action name="SendToDesktop" to="2"/>
+    </keybind>
+    <keybind key="S-W-3">
+      <action name="SendToDesktop" to="3"/>
+    </keybind>
+    <keybind key="S-W-4">
+      <action name="SendToDesktop" to="4"/>
+    </keybind>
+    <!-- Reload config -->
+    <keybind key="W-C-r">
+      <action name="Execute" command="labwc --reconfigure"/>
+    </keybind>
+
+    <keybind key="XF86_AudioLowerVolume">
+      <action name="Execute" command="lxqt-qdbus volume down" />
+    </keybind>
+    <keybind key="XF86_AudioRaiseVolume">
+      <action name="Execute" command="lxqt-qdbus volume up" />
+    </keybind>
+    <keybind key="W--">
+      <action name="Execute" command="lxqt-qdbus volume down" />
+    </keybind>
+    <keybind key="W-=">
+      <action name="Execute" command="lxqt-qdbus volume up" />
+    </keybind>
+    <keybind key="W-F2">
+      <action name="Execute" command="lxqt-qdbus volume down" />
+    </keybind>
+    <keybind key="W-F3">
+      <action name="Execute" command="lxqt-qdbus volume up" />
+    </keybind>
+    <keybind key="XF86_AudioMute">
+      <action name="Execute" command="lxqt-qdbus volume mute" />
+    </keybind>
+    <keybind key="W-0">
+      <action name="Execute" command="lxqt-qdbus volume mute" />
+    </keybind>
+    <keybind key="XF86_MonBrightnessUp">
+      <action name="Execute" command="lxqt-config-brightness -i" />
+    </keybind>
+    <keybind key="XF86_MonBrightnessDown">
+      <action name="Execute" command="lxqt-config-brightness -d" />
+    </keybind>
+    <keybind key="W-F6">
+      <action name="Execute" command="lxqt-config-brightness -i" />
+    </keybind>
+    <keybind key="W-F5">
+      <action name="Execute" command="lxqt-config-brightness -d" />
+    </keybind>
+  </keyboard>
+  <!-- <theme> -->
+<!-- gesture: swipe left 3   wtype  -M ctrl -M alt -P right -->
+<!-- gesture: swipe right 3 wtype  -M ctrl -M alt -P left -->
+  <!-- <font><theme> can be defined without an attribute to set all places -->
+  <theme>
+    <name>Vent-dark</name>
+    <icon>breeze</icon>
+    <fallbackAppIcon>labwc</fallbackAppIcon>
+    <titlebar>
+      <layout>icon:iconify,max,close</layout>
+      <showTitle>yes</showTitle>
+    </titlebar>
+    <cornerRadius>13</cornerRadius>
+    <keepBorder>yes</keepBorder>
+    <maximizedDecoration>titlebar</maximizedDecoration>
+    <dropShadows>yes</dropShadows>
+    <dropShadowsOnTiled>no</dropShadowsOnTiled>
+    <font place="ActiveWindow">
+      <name>sans</name>
+      <size>16</size>
+      <slant>normal</slant>
+      <weight>bold</weight>
+    </font>
+    <font place="InActiveWindow">
+      <name>sans</name>
+      <size>16</size>
+      <slant>normal</slant>
+      <weight>bold</weight>
+    </font>
+    <font place="MenuHeader">
+      <name>sans</name>
+      <size>15</size>
+      <slant>normal</slant>
+      <weight>normal</weight>
+    </font>
+    <font place="MenuItem">
+      <name>sans</name>
+      <size>15</size>
+      <slant>normal</slant>
+      <weight>normal</weight>
+    </font>
+    <font place="OnScreenDisplay">
+      <name>sans</name>
+      <size>16</size>
+      <slant>normal</slant>
+      <weight>normal</weight>
+    </font>
+  </theme>
+
+  <libinput>
+    <device category="default">
+      <naturalScroll>no</naturalScroll>
+      <pointerSpeed>1</pointerSpeed>
+      <accelProfile>adaptive</accelProfile>
+      <disableWhileTyping>yes</disableWhileTyping>
+    </device>
+  </libinput>
+
+  <!-- Show windows regardless of what workspace they are on -->
+  <!-- <windowSwitcher show="yes" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no"> -->
+  <!-- <windowSwitcher show="no" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no"> -->
+  <!--   <fields> -->
+  <!--     <field content="icon" width="5%" /> -->
+  <!--     <field content="desktop_entry_name" width="30%" /> -->
+  <!--     <field content="title" width="64%" /> -->
+      <!--
+        Just as for window-rules, you can use 'identifier' or
+        'trimmed_identifier' to show the app_id for native wayland clients or
+        WM_CLASS for XWayland clients.
+
+        <field content="trimmed_identifier" width="65%" />
+      -->
+    <!-- </fields> -->
+  <!-- </windowSwitcher> -->
+</labwc_config>

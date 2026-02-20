@@ -1,0 +1,53 @@
+# vim:ft=conf
+
+feedlist-title-format "%N (%u/%t)"
+feedlist-format "%t"
+articlelist-title-format "%N - %T (%u/%t)"
+articlelist-format "%-6L %D  %t"
+itemview-title-format "%N - %F - %T"
+
+download-full-page yes
+
+bind-key h toggle-show-read-feeds
+bind-key s sort
+bind-key ^W hard-quit
+bind-key r reload
+bind-key R reload-all
+bind-key O open-all-unread-in-browser-and-mark-read
+bind-key o open-in-browser
+bind-key l open
+bind-key h quit
+bind-key k up
+bind-key j down
+bind-key g home
+bind-key G end
+bind-key ^U halfpageup
+bind-key ^D halfpagedown
+bind-key ^F pagedown
+bind-key ^B pageup
+bind-key ? help
+
+# COLORS
+# NOTE: color0 through 15 are the terminal colors
+# color <element> <foreground color> <background color> [<attribute> ...]
+
+color title               color9   color235
+color background          color15  color235
+color article             color15  color235
+color info                color208 color235 bold
+
+color listnormal          color8   color235
+color listfocus           color8   color237 bold
+color listnormal_unread   color10  color235
+color listfocus_unread    color10  color237 bold
+
+color hint-key            color14  color235 bold
+color hint-keys-delimiter color6   color235 dim
+color hint-separator      color6   color235 dim
+color hint-description    color6   color235
+
+highlight article "^(Title|Date|Author|Feed):.*$" color7  default dim
+highlight article "^Link: http.*$"                color7  default dim
+highlight article "https?://[^ ]+"                color13 default underline
+highlight article "\\[image\\ [0-9]+.*\\]"        color12 default bold
+highlight article "\\[[0-9]+\\]"                  color11 default bold
