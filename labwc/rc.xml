@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <labwc_config>
   <!-- Workspace Switcher (0 hide) -->
-  <desktops number="3">
+  <desktops number="4">
     <popupTime>3</popupTime>
   </desktops>
   <!-- Window placement on opening: cascade, automatic or center -->
@@ -48,14 +48,8 @@
     <keybind key="W-d">
       <action name="Execute" command="qterminal -d"/>
     </keybind>
-    <keybind key="W-.">
-      <action name="Execute" command="qterminal -d"/>
-    </keybind>
-    <keybind key="W-;">
-      <action name="Execute" command="qterminal -d"/>
-    </keybind>
-    <keybind key="F12">
-      <action name="Execute" command="qterminal -d"/>
+    <keybind key="W-a">
+      <action name="Execute" command="audacious"/>
     </keybind>
     <!-- <keybind key="Print"> -->
     <!--   <action name="Execute" command="lxqt-qdbus run screengrab" /> -->
@@ -121,7 +115,7 @@
     <keybind key="W-x">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="W-S-m">
+    <keybind key="W-C-d">
       <action name="Iconify"/>
     </keybind>
     <!-- media player control -->
@@ -133,7 +127,10 @@
       <action name="Execute" command="playerctl previous"/>
     </keybind>
     <keybind key="W-z">
-      <action name="Execute" command="playerctl -p audacious play-pause"/>
+      <action name="Execute" command="playerctl play-pause"/>
+    </keybind>
+    <keybind key="W-/">
+      <action name="Execute" command="playerctl play-pause"/>
     </keybind>
     <keybind key="W-f">
       <action name="Execute" command="playerctl position 25+"/>
@@ -141,10 +138,22 @@
     <keybind key="W-b">
       <action name="Execute" command="playerctl position 25-"/>
     </keybind>
+    <keybind key="W-.">
+      <action name="Execute" command="playerctl position 3+"/>
+    </keybind>
+    <keybind key="W-,">
+      <action name="Execute" command="playerctl position 3-"/>
+    </keybind>
+    <keybind key="W-h">
+      <action name="Execute" command="playerctl position 3-"/>
+    </keybind>
+    <keybind key="W-7">
+      <action name="Execute" command="playerctl metadata"/>
+    </keybind>
     <keybind key="W-s">
       <action name="NextWindow"/>
     </keybind>
-    <keybind key="W-,">
+    <keybind key="W-;">
       <action name="NextWindow"/>
     </keybind>
     <!-- GoToDesktop left and right with -->
@@ -160,12 +169,12 @@
     <keybind key="W-l">
       <action name="GoToDesktop" to="right"/>
     </keybind>
-    <keybind key="W-a">
-      <action name="GoToDesktop" to="left"/>
-    </keybind>
-    <keybind key="W-g">
-      <action name="GoToDesktop" to="right"/>
-    </keybind>
+    <!-- <keybind key="W-a"> -->
+      <!-- <action name="GoToDesktop" to="left"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-g"> -->
+      <!-- <action name="GoToDesktop" to="right"/> -->
+    <!-- </keybind> -->
     <!-- GoToDesktop by number -->
     <keybind key="W-1">
       <action name="GoToDesktop" to="1"/>
@@ -195,7 +204,7 @@
     <keybind key="S-W-h">
       <action name="SendToDesktop" to="left"/>
     </keybind>
-    <keybind key="S-W-r">
+    <keybind key="S-W-l">
       <action name="SendToDesktop" to="right"/>
     </keybind>
     <keybind key="S-W-h">
