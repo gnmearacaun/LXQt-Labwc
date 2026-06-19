@@ -2,18 +2,23 @@
 
 My config for running Labwc (Window Manager) in an LXQt (Wayland) session.
 
-With the advent of >= LXQt 2.1 you can choose any of several Wayland compositors within LXQt to manage the windows whereas LXQt takes care of powermanagement, theming etc. providing lxpanel (bar) and lxqt-runner (launcher) and other LXQt desktop utilities. Some (not all) settings can be made in LXQt Configuration Center. Here's the [wiki]( https://github.com/lxqt/lxqt/wiki).
+With the advent of >= LXQt 2.1 you can choose any of several WM's within LXQt for navigating around the desktop. LXQt takes care of powermanagement, theming etc. providing lxpanel (bar), lxqt-runner (launcher), wallpaper slideshow to name a few. Some settings can be made in LXQt Configuration Center the rest are made via config files.
 
-When Raspberry Pi switched from Wayfire WM to LabWC in their Bookworm release (Oct '24) I decided use it on my laptop as well. [Labwc](https://labwc.github.io/index.html) is a wlroots-based stacking compositor. Inspired by BunsenLabs (lightweight Debian + Openbox-based distro), it takes a no-frills approach to focus on stacking windows well and rendering some window decorations. The dark window dressing and some other elements of my config are thanks to https://github.com/stefonarch among other sources. 
-
-Once installed, users can select `/usr/bin/labwc` in LXQt Session Settings > Wayland Settings > Wayland compositor. Login to (“LXQt (Wayland)”) from the (SDDM) display manager. 
+When Raspberry Pi moved from Wayfire WM to LabWC in their Bookworm release Oct '24, I decided use it on my laptop as well. [Labwc](https://labwc.github.io/index.html) is a wlroots-based stacking compositor. Inspired by BunsenLabs (lightweight Debian + Openbox-based distro), it takes a no-frills approach to focus on stacking windows well and rendering some window decorations. The dark window dressing and some other elements of my config are thanks to https://github.com/stefonarch among other sources. 
 
 If you didn't choose LXQt initially, install:
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
 
-Don't forget to grab `labwc` and `playerctl` for media-player shortcuts.
+
+Install `labwc` (also grab `playerctl` for media-player shortcuts).
+
+`git clone https://github.com/gnmearacaun/LXQt-Labwc.git`
+Move the `labwc` directory into ~/.config/ 
+
+In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor put `/usr/bin/labwc` in the input box. Login to (“LXQt (Wayland)”) from the (SDDM) display manager. 
+
 
 
 ![screenshot](screenshots/2024-12-31.png)
@@ -27,11 +32,12 @@ Don't forget to grab `labwc` and `playerctl` for media-player shortcuts.
 
 #### _Caps2esc_ and _Space2meta_
 
-- Window managers typically make liberal use of the `super` key to move around. [space2meta](https://gitlab.com/interception/linux/plugins/space2meta): _turns your space key into the meta (a.k.a. super) key when chorded to another key_. 
+- Window managers typically make liberal use of the `super` key to move around. 
+[space2meta](https://gitlab.com/interception/linux/plugins/space2meta) turns your space key into the meta (a.k.a. super) key when chorded to another key. 
 
-- [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforming the most useless key ever into the most useful one_ `<Caps_lock>` is `esc` when tapped and `ctrl` when held down with another key. 
+- [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforming the most useless key ever into the most useful one_ `<Caps_lock>` is `esc` when tapped and `Ctrl` when held down with another key. 
 
-`Caps2esc` is available in the repo, however `space2meta` needs to be built manually.
+In Debian `Caps2esc` is available in the repo, however `space2meta` needs to be built manually.
 
 ```
 sudo apt-get update
@@ -43,11 +49,10 @@ cmake --build build
 sudo mv build/space2meta /usr/local/bin  
 cd .. && rm -r space2meta
 ```
-Clone this very repo, put the udevmon config in place, and enable and start the service (you may have to logout/login to get the effect). 
+
+Put the udevmon config in place, enable and start the service (you may have to logout/login to get the effect). 
 
 ```
-git clone https://github.com/gnmearacaun/rpios-wayfirewm-config.git
-cd rpios-wayfirewm-config
 sudo mkdir -p /etc/interception/udevmon.d
 sudo mv udevmon.yaml /etc/interception/udevmon.d/
 sudo systemctl enable --now udevmon.service
