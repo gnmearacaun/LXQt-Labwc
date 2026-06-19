@@ -17,7 +17,7 @@ Install `labwc` (also grab `playerctl` for media-player shortcuts).
 `git clone https://github.com/gnmearacaun/LXQt-Labwc.git`
 Move the `labwc` directory into ~/.config/ 
 
-In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor put `/usr/bin/labwc` in the input box. Login to (“LXQt (Wayland)”) from the (SDDM) display manager. 
+In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor put `/usr/bin/labwc` in the input box. Logout and select `LXQt (Wayland)` for your next login. 
 
 
 
@@ -50,7 +50,7 @@ sudo mv build/space2meta /usr/local/bin
 cd .. && rm -r space2meta
 ```
 
-Put the udevmon config in place, enable and start the service (you may have to logout/login to get the effect). 
+Put the udevmon.yaml in place, enable and start the service  
 
 ```
 sudo mkdir -p /etc/interception/udevmon.d
@@ -63,6 +63,8 @@ The following command increases the priority.
 ```
 sudo nice -n -20 udevmon -c udevmon.yaml >udevmon.log 2>udevmon.err &
 ```
+
+You may have to logout/login to get the effect.
 
 #### Zsh and Zap
 
@@ -107,25 +109,25 @@ xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call
 ```
 
 
-#### Build the Latest Neovim 
+#### A Fully Featured Neovim Starterplate 
 
-To use the awesome [LazyVim](https://www.lazyvim.org/installation) config we need a newer version of Neovim than Trixie offers. 
+To use the awesome [LazyVim](https://www.lazyvim.org/installation) config (see link for instructions) we need to build a newer version of Neovim than Trixie can offer. 
 
 - Note `CMAKE_BUILD_TYPE=RelWithDebInfo` would make a build with Debug info. `Release` runs a bit lighter.
 
-- Use `git checkout nightly` if you need the very latest.
+- Use `git checkout stable` if preferred.
 
 ```
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential ripgrep fd-find fzf wl-clipboard 
 git clone https://github.com/neovim/neovim.git
-git checkout stable 
+git checkout nightly 
 make CMAKE_BUILD_TYPE=Release
 cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 
 ```
 
-Now that Neovim is available, make it the default in your `.zshrc`
+To make it the default in your `.zshrc`
 
 ```
 export EDITOR="nvim"
