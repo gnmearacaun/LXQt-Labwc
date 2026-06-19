@@ -106,7 +106,7 @@ xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call
 
 #### Build the Latest Neovim 
 
-Neovim is improving rapidly. To take advantage of recent developments in the plugins infrastructure we need a newer version of Neovim than Trixie offers. Neovim plays nicely with the system clipboard for copy and pasting, commenting lines easily (`gcc`) and searching for files with `telescope` and so much more.  
+To use the awesome [LazyVim](https://www.lazyvim.org/installation) config we need a newer version of Neovim than Trixie offers. 
 
 - Note `CMAKE_BUILD_TYPE=RelWithDebInfo` would make a build with Debug info. `Release` runs a bit lighter.
 
@@ -119,9 +119,8 @@ git checkout stable
 make CMAKE_BUILD_TYPE=Release
 cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
+
 ```
-https://www.lazyvim.org/installation
-If you don't have an `nvim` config of your own, [LazyVim](https://www.lazyvim.org/installation) is a great option, or feel free to use [mine](https://github.com/gnmearacaun/nvim-launch.git) 
 
 Now that Neovim is available, make it the default in your `.zshrc`
 
@@ -129,9 +128,11 @@ Now that Neovim is available, make it the default in your `.zshrc`
 export EDITOR="nvim"
 ```
 
+Tip: Un/comment lines easily with (`gcc`). I often open nvim just to find a file on my system or to `grep` for a keyword.
+
 #### Install nodejs 
 
-Utilizing [nodesource](https://github.com/nodesource/distributions), run as root:
+I think this may be necessary for neovim. Utilizing [nodesource](https://github.com/nodesource/distributions), run as root:
 
 ```
 sudo su
