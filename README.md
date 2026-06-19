@@ -10,12 +10,10 @@ Once installed, users can select `/usr/bin/labwc` in LXQt Session Settings > Way
 
 If you didn't choose LXQt initially, install:
 ```
-lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session labwc playerctl 
+lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
-for labwc and some media shortcuts:
-```
-labwc playerctl 
-```
+
+Don't forget to grab `labwc` and `playerctl` for media-player shortcuts.
 
 
 ![screenshot](screenshots/2024-12-31.png)
