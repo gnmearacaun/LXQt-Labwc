@@ -1,29 +1,30 @@
 # LXQt-LabWC
 
-Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Session.
+- Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Session.
 
 `>=` LXQt 2.1 supports several Wayland Compositors to control the desktop. LXQt provides lxpanel (the bar) and lxqt-runner (the launcher). Theming, power management, notifications, scaling and wallpaper slideshow are configured in LXQt Settings. 
 
 [Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*`.
 
-If you didn't select LXQt Desktop Environment initially, install:
+- If you didn't select LXQt Desktop Environment initially, install:
 
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
 
-Grab `labwc` while you're at it (& `playerctl` for media-player shortcuts).
+Install `labwc` & `playerctl` for media-player shortcuts.
 
-To clone this repo 
+Clone this repo 
 
 ```
 git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 ```
 
-Move the `labwc` directory into your ~/.config/ directory. Programs invoked from `autostart` and `rc.xml` may need to be installed separately. 
+Move the `labwc` directory into your `~/.config/ directory` 
 
-In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
-enter `/usr/bin/labwc` into the input box. 
+- Programs invoked from `autostart` and `rc.xml` may need to be installed separately. 
+
+Enter `/usr/bin/labwc` into the input box in `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
 
 Logout and select `LXQt (Wayland)` in the display manager for the next session. 
 
@@ -44,7 +45,7 @@ Logout and select `LXQt (Wayland)` in the display manager for the next session.
 
 - [Caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforms the most useless key ever into the most useful one_ `<Caps_lock>` is `Esc` when tapped and `Ctrl` when held down with another key. 
 
-In Debian `caps2esc` is available in the repo, however `space2meta` needs to be compiled.
+Compile `space2meta` (Debian, `caps2esc` is available in the repo) 
 
 ```
 sudo apt-get update
@@ -71,7 +72,7 @@ The following command increases the priority.
 sudo nice -n -20 udevmon -c udevmon.yaml >udevmon.log 2>udevmon.err &
 ```
 
-You may have to logout/login to get the effect.
+- You may have to logout/login to get the effect.
 
 #### Zsh and Zap Plugin Manager 
 
@@ -79,24 +80,29 @@ To set zsh as your default shell, execute the following.
 ```
 sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 ```
-Log out and back in. You're prompt will be basic. Install [zap](https://github.com/zap-zsh/zap) (replaces `oh-my-zsh`)
+
+Log out and back in. You're prompt will be basic. 
+
+Install [zap](https://github.com/zap-zsh/zap) (replaces `oh-my-zsh`)
+
 ```
 sudo apt-get install zsh zoxide
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
+
 Reopen the shell, `zap` automajically installs the default plugins. 
-More plugins can be found on the [homepage](https://www.zapzsh.com/) 
+
+- More plugins can be found on the [homepage](https://www.zapzsh.com/) 
 
 #### [Nerdfonts](https://github.com/getnf/getnf)
 
-Often required by modern shell programs like zsh and neovim.
+Used by zsh and neovim, ranger (file manager) and other tui programs.
 
 ```
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 ```
-Run `getnf` in the terminal and follow the prompts.
 
-The fonts you select will be available system-wide.
+Run `getnf` in the terminal and follow the prompts. The fonts you select will be available system-wide.
 
 #### A Minimal Vim Configuration 
 
@@ -113,20 +119,21 @@ cd && sudo cp -r .vim /root
 ```
 
 
-Copy/paste tip: Add the following line to your `init.vim` to yank to `wl-clipboard`. 
+- Add the following line to your `init.vim` to yank to `wl-clipboard`. 
+
 ```
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 ```
 
-Visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (`,` by default) and then `y` to copy to system clipboard. Most terminals have `Ctrl+Shift+v` as the paste command. 
+- Visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (`,` by default) and then `y` to copy to system clipboard. Most terminals have `Ctrl+Shift+v` as the paste command. 
 
 #### And A Fully Featured Neovim Starterplate 
 
 To use the awesome [LazyVim](https://www.lazyvim.org/installation) config (see link for instructions) we need to build a newer version of Neovim than Trixie can offer. 
 
-- Note `CMAKE_BUILD_TYPE=RelWithDebInfo` would make a build with Debug info. `Release` runs a bit lighter.
+- Use `CMAKE_BUILD_TYPE=RelWithDebInfo` instead if you like reading debugging logs. `Release` used here runs a bit lighter.
 
-- Use `git checkout stable` if preferred.
+- Use `git checkout stable` instead if preferred, I've never encountered any problems with `nightly`.
 
 ```
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential ripgrep fd-find fzf wl-clipboard 
@@ -137,15 +144,13 @@ cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 
 ```
-
-To make it the default, add this line to your `.zshrc`
+Make it the default, add this line to your `.zshrc`
 
 ```
 export EDITOR="nvim"
 ```
 
-Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same developer/hero [Folke](https://github.com/folke).
-#### To Upgrade Neovim
+- Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same developer/hero [Folke](https://github.com/folke).
 
 Later when you want to upgrade, go back into the neovim directory (wherever it's stashed). Assuming you're on the branch you want, to rebuild from scratch and replace the current build:
 
@@ -156,17 +161,20 @@ cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 ```
 
-Btw: In case you want to start over and use a different branch (`stable` for example):
+In case you want uninstall or use a different git branch:
+
 ```
 cd neovim && sudo cmake --build build/ --target uninstall
 ```
 
-Alternatively, just delete the CMAKE_INSTALL_PREFIX artifacts:
+- Alternatively, just delete the CMAKE_INSTALL_PREFIX artifacts:
 ```
+
 sudo rm /usr/local/bin/nvim
 sudo rm -r /usr/local/share/nvim/
 ```
 
 ____
+
 The dark window dressing and some other elements of my config are thanks to https://github.com/stefonarch amongst other sources. 
 ____
