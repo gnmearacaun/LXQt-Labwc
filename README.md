@@ -7,6 +7,7 @@ With the advent of `>=` LXQt 2.1 you can use one of several WM's within LXQt to 
 [Labwc](https://labwc.github.io/index.html) window compositor takes a no-animation approach, focusing instead on stacking windows well (instead of tiling, you can do that manually with keybindings) whilst rendering some window decorations. 
 
 If you didn't install LXQt initially, these packages have you covered:
+
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
@@ -14,6 +15,7 @@ lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session
 Grab `labwc` (& `playerctl` for media-player shortcuts) while you're at it.
 
 Clone this repo. 
+
 ```
 git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 ```
@@ -21,8 +23,10 @@ git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 Move the `labwc` directory into your ~/.config/ directory. 
 
 In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
+
 Enter `/usr/bin/labwc` in the input box. 
-Logout and select `LXQt (Wayland)` in the display manager to login. 
+
+Logout and select `LXQt (Wayland)` in the display manager. 
 
 ![screenshot](screenshots/2024-12-31.png)
 
@@ -109,11 +113,12 @@ cd && sudo cp -r .vim /root
 ```
 
 
-Tip: add the following line to your `init.vim` to yank to `wl-clipboard`. So you would visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (it's mapped to the `<spacebar>`) and then `y` to copy. Most terminals have `Ctrl+Shift+v` as the paste command. 
+Copy/paste tip: Add the following line to your `init.vim` to yank to `wl-clipboard`. 
 ```
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 ```
 
+Visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (`,` by default) and then `y` to copy to system clipboard. Most terminals have `Ctrl+Shift+v` as the paste command. 
 
 #### And A Fully Featured Neovim Starterplate 
 
