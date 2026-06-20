@@ -1,8 +1,8 @@
 # LXQt-LabWC
 
-Config for running Labwc (Window Manager/Compositor) in an LXQt (Wayland) session.
+Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Session.
 
-With the advent of `>=` LXQt 2.1 you can use one of several WM's within LXQt to navigate around the desktop. LXQt provides lxpanel(bar) and lxqt-runner(launcher). Theming, wallpaper slideshow, power management, notifications and scaling are found in LXQt Settings. Shortcuts, monitor settings and screenshots are invoked via ~/.config/labwc/* 
+With the advent of `>=` LXQt 2.1 you can use one of several WM's within LXQt to navigate around the desktop. LXQt provides lxpanel(bar) and lxqt-runner(launcher). Theming, wallpaper slideshow, power management, notifications and scaling are found in LXQt Settings. WM shortcuts, monitor settings and screenshots are invoked via ~/.config/labwc/* 
 
 [Labwc](https://labwc.github.io/index.html) window compositor takes a no-animation approach, focusing instead on stacking windows well (instead of tiling, you can do that manually with keybindings) whilst rendering some window decorations. 
 
@@ -11,15 +11,18 @@ If you didn't install LXQt initially, these packages have you covered:
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
 
-While you're at it, grab `labwc` (& `playerctl` for media-player shortcuts).
+Grab `labwc` (& `playerctl` for media-player shortcuts) while you're at it.
 
-Clone and move the `labwc` directory into ~/.config/ 
+Clone this repo. 
 ```
 git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 ```
 
-In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor enter `/usr/bin/labwc` into the input box. 
-Logout and select `LXQt (Wayland)` in the display/login manager for your maiden session. 
+Move the `labwc` directory into your ~/.config/ directory. 
+
+In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
+Enter `/usr/bin/labwc` in the input box. 
+Logout and select `LXQt (Wayland)` in the display manager to login. 
 
 ![screenshot](screenshots/2024-12-31.png)
 
@@ -28,16 +31,16 @@ Logout and select `LXQt (Wayland)` in the display/login manager for your maiden 
 ![screenshot](screenshots/2024-12-31c.png)
 
 
-### Other Preferences I Have
+### Things I Do On A New Build 
 
 #### _Space2meta_ and _Caps2esc_ 
 
-- Window managers typically make liberal use of the `super` key to move around. 
-[Space2meta](https://gitlab.com/interception/linux/plugins/space2meta) treats your spacebar as Meta (a.k.a. `Super`) when chorded with another key. 
+- Window managers make liberal use of the `Super` key to get around. 
+[Space2meta](https://gitlab.com/interception/linux/plugins/space2meta) treats your spacebar as Meta (a.k.a. `Super`) when chorded with other keys. 
 
 - [Caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforms the most useless key ever into the most useful one_ `<Caps_lock>` is `Esc` when tapped and `Ctrl` when held down with another key. 
 
-In Debian `caps2esc` is available in the repo, however `space2meta` needs to be built manually.
+In Debian `caps2esc` is available in the repo, however `space2meta` needs to be compiled.
 
 ```
 sudo apt-get update
@@ -77,7 +80,8 @@ Log out and back in. You're prompt will be basic. Install [zap](https://github.c
 sudo apt-get install zsh zoxide
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
-Reopen the shell, `zap` automajically installs the default plugins. Plugins can be found on the [Zap homepage](https://www.zapzsh.com/) 
+Reopen the shell, `zap` automajically installs the default plugins. 
+More plugins can be found on the [Zap homepage](https://www.zapzsh.com/) 
 
 #### [Nerdfonts](https://github.com/getnf/getnf)
 
@@ -105,7 +109,7 @@ cd && sudo cp -r .vim /root
 ```
 
 
-    Tip: add the following line to your `init.vim` to yank to `wl-clipboard`. So you would visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (it's mapped to the `<spacebar>`) and then `y` to copy. Most terminals have `Ctrl+Shift+v` as the paste command. 
+Tip: add the following line to your `init.vim` to yank to `wl-clipboard`. So you would visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (it's mapped to the `<spacebar>`) and then `y` to copy. Most terminals have `Ctrl+Shift+v` as the paste command. 
 ```
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 ```
@@ -135,7 +139,7 @@ To make it the default, add this line to your `.zshrc`
 export EDITOR="nvim"
 ```
 
-    Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same author, developer/hero [Folke](https://github.com/folke).
+Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same author, developer/hero [Folke](https://github.com/folke).
 
 #### Install nodejs 
 
