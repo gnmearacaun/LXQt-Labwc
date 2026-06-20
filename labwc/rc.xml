@@ -15,6 +15,11 @@
   </core>
 
   <keyboard>
+  <!-- W stands for Super key, C for Ctrl, S for Shift -->
+    <!-- Reload Labwc After Editing -->
+    <keybind key="W-C-r">
+      <action name="execute" command="labwc --reconfigure"/>
+    </keybind>
     <keybind key="W-r">
       <action name="Execute" command="lxqt-runner"/>
     </keybind>
@@ -22,7 +27,7 @@
     <keybind key="W-q">
       <action name="Close"/>
     </keybind>
-    <!-- Terminals galore -->
+    <!-- Terminals galore, need to install first -->
     <keybind key="W-Return">
       <action name="Execute" command="lxqt-qdbus run alacritty"/>
     </keybind>
@@ -41,9 +46,6 @@
     <keybind key="W-e">
       <action name="Execute" command="lxqt-qdbus run pcmanfm-qt"/>
     </keybind>
-    <keybind key="W-5">
-      <action name="Execute" command="lxqt-qdbus run pcmanfm-qt"/>
-    </keybind>
     <!-- For qterminal dropdown -->
     <keybind key="W-d">
       <action name="Execute" command="qterminal -d"/>
@@ -51,9 +53,6 @@
     <keybind key="W-a">
       <action name="Execute" command="audacious"/>
     </keybind>
-    <!-- <keybind key="Print"> -->
-    <!--   <action name="Execute" command="lxqt-qdbus run screengrab" /> -->
-    <!-- </keybind> -->
     <keybind key="W-c">
       <action name="HideCursor" />
       <action name="WarpCursor" x="-1" y="-1" />
@@ -64,6 +63,7 @@
     <!-- <keybind key="W-w"> -->
     <!--   <action name="Execute" command="lxqt-qdbus openmenu" /> -->
     <!-- </keybind> -->
+
     <!-- Powerbutton-->
     <keybind key="XF86PowerOff">
       <action name="Execute">
@@ -85,8 +85,8 @@
       <action name="Execute" command="lxqt-leave --shutdown" />
     </keybind>
 
-    <!-- Screenshots. Requires the packages grim, slurp and sway-contrib -->
-    <!-- Grimshot will write image files to XDG_SCREENSHOTS_DIR if this is set (or defined in user-dirs.dir), or otherwise fall back to XDG_PICTURES_DIR. XDG folders can be set in LXQt Session Settings -->
+    <!-- Screenshots.  -->
+    <!-- Grimshot will write image files to XDG_SCREENSHOTS_DIR if this is set (or defined in user-dirs.dir), or otherwise fall back to XDG_PICTURES_DIR. XDG folders can be set in LXQt Session Settings. May require packages grim, slurp and sway-contrib-->
     <keybind key="W-y">
       <action name="Execute" command="/usr/bin/grimshot save screen"/>
     </keybind>
@@ -96,6 +96,10 @@
     <keybind key="W-S-y">
       <action name="Execute" command="/usr/bin/grimshot --wait 10 save screen"/>
     </keybind>
+    <!-- <keybind key="Print"> -->
+    <!--   <action name="Execute" command="lxqt-qdbus run screengrab" /> -->
+    <!-- </keybind> -->
+
     <!-- Windows -->
     <keybind key="W-m">
       <action name="ToggleMaximize"/>
@@ -106,21 +110,20 @@
     <keybind key="W-w">
       <action name="ToggleFullscreen"/>
     </keybind>
-    <!-- <keybind key="W-C-f"> -->
-    <!--   <action name="ToggleFullscreen"/> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-?"> -->
-    <!--   <action name="ToggleMagnify"/> -->
-    <!-- </keybind> -->
+    <keybind key="W-?">
+      <action name="ToggleMagnify"/>
+    </keybind>
     <keybind key="W-x">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="W-C-d">
+      <!-- minimise window -->
+    <keybind key="W-g">
       <action name="Iconify"/>
     </keybind>
     <!-- media player control -->
-    <keybind key="W-n">
+      <!-- for player specific, use something like-->
       <!-- <action name="Execute" command="playerctl -p audacious next"/> -->
+    <keybind key="W-n">
       <action name="Execute" command="playerctl next"/>
     </keybind>
     <keybind key="W-p">
@@ -169,12 +172,7 @@
     <keybind key="W-l">
       <action name="GoToDesktop" to="right"/>
     </keybind>
-    <!-- <keybind key="W-a"> -->
-      <!-- <action name="GoToDesktop" to="left"/> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-g"> -->
-      <!-- <action name="GoToDesktop" to="right"/> -->
-    <!-- </keybind> -->
+
     <!-- GoToDesktop by number -->
     <keybind key="W-1">
       <action name="GoToDesktop" to="1"/>
@@ -200,6 +198,7 @@
     <keybind key="C-W-l">
       <action name="SnapToEdge" direction="right"/>
     </keybind>
+
     <!-- SendToDesktop -->
     <keybind key="S-W-h">
       <action name="SendToDesktop" to="left"/>
@@ -222,50 +221,47 @@
     <keybind key="S-W-4">
       <action name="SendToDesktop" to="4"/>
     </keybind>
-    <!-- Reload config -->
-    <keybind key="W-C-r">
-      <action name="Execute" command="labwc --reconfigure"/>
-    </keybind>
 
-    <keybind key="XF86_AudioLowerVolume">
-      <action name="Execute" command="lxqt-qdbus volume down" />
+<!-- volume and brightness -->
+    <keybind key="xf86_audiolowervolume">
+      <action name="execute" command="lxqt-qdbus volume down" />
     </keybind>
-    <keybind key="XF86_AudioRaiseVolume">
-      <action name="Execute" command="lxqt-qdbus volume up" />
+    <keybind key="xf86_audioraisevolume">
+      <action name="execute" command="lxqt-qdbus volume up" />
     </keybind>
     <keybind key="W--">
-      <action name="Execute" command="lxqt-qdbus volume down" />
+      <action name="execute" command="lxqt-qdbus volume down" />
     </keybind>
     <keybind key="W-=">
-      <action name="Execute" command="lxqt-qdbus volume up" />
+      <action name="execute" command="lxqt-qdbus volume up" />
     </keybind>
     <keybind key="W-F2">
-      <action name="Execute" command="lxqt-qdbus volume down" />
+      <action name="execute" command="lxqt-qdbus volume down" />
     </keybind>
     <keybind key="W-F3">
-      <action name="Execute" command="lxqt-qdbus volume up" />
+      <action name="execute" command="lxqt-qdbus volume up" />
     </keybind>
-    <keybind key="XF86_AudioMute">
-      <action name="Execute" command="lxqt-qdbus volume mute" />
+    <keybind key="xf86_audiomute">
+      <action name="execute" command="lxqt-qdbus volume mute" />
     </keybind>
     <keybind key="W-0">
-      <action name="Execute" command="lxqt-qdbus volume mute" />
+      <action name="execute" command="lxqt-qdbus volume mute" />
     </keybind>
-    <keybind key="XF86_MonBrightnessUp">
-      <action name="Execute" command="lxqt-config-brightness -i" />
+    <keybind key="xf86_monbrightnessup">
+      <action name="execute" command="lxqt-config-brightness -i" />
     </keybind>
-    <keybind key="XF86_MonBrightnessDown">
-      <action name="Execute" command="lxqt-config-brightness -d" />
+    <keybind key="xf86_monbrightnessdown">
+      <action name="execute" command="lxqt-config-brightness -d" />
     </keybind>
     <keybind key="W-F6">
-      <action name="Execute" command="lxqt-config-brightness -i" />
+      <action name="execute" command="lxqt-config-brightness -i" />
     </keybind>
     <keybind key="W-F5">
-      <action name="Execute" command="lxqt-config-brightness -d" />
+      <action name="execute" command="lxqt-config-brightness -d" />
     </keybind>
   </keyboard>
   <!-- <theme> -->
-<!-- gesture: swipe left 3   wtype  -M ctrl -M alt -P right -->
+<!-- gesture: swipe left 3   wtype  -m ctrl -m alt -p right -->
 <!-- gesture: swipe right 3 wtype  -M ctrl -M alt -P left -->
   <!-- <font><theme> can be defined without an attribute to set all places -->
   <theme>
@@ -322,6 +318,7 @@
     </device>
   </libinput>
 
+<!-- MISC -->
   <!-- Show windows regardless of what workspace they are on -->
   <!-- <windowSwitcher show="yes" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no"> -->
   <!-- <windowSwitcher show="no" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no"> -->

@@ -5,11 +5,17 @@
 ## Cursor theme and size are set by LXQt and can be configured in"Appearance → Cursor".
 
 ##############
-#BOD
 # Scaling for gtk apps
 GDK_SCALE=1.1
 GDK_DPI_SCALE=1.1
 
+# XKB_DEFAULT_LAYOUT=ie
+XKB_DEFAULT_LAYOUT=ie,gb(intl)
+# XKB_DEFAULT_LAYOUT=gb,us(intl)
+XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
+# XKB_DEFAULT_OPTIONS=grp:shift_caps_toggle,compose:ralt
+# XKB_DEFAULT_OPTIONS=grp:shift_ctrl,compose:ralt
+#
 # QT_QPA_PLATFORMTHEME=qt6ct
 ##############
 ## Disable hardware cursors. Most users wouldn't want to do this, but if you
@@ -73,11 +79,3 @@ GDK_DPI_SCALE=1.1
 ## in: /usr/share/X11/xkb/rules/evdev.lst
 ##
 ## For further details, see xkeyboard-config(7)
-## 
-
-# XKB_DEFAULT_LAYOUT=ie
-XKB_DEFAULT_LAYOUT=ie,gb(intl)
-# XKB_DEFAULT_LAYOUT=gb,us(intl)
-XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
-# XKB_DEFAULT_OPTIONS=grp:shift_caps_toggle,compose:ralt
-# XKB_DEFAULT_OPTIONS=grp:shift_ctrl,compose:ralt

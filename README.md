@@ -1,25 +1,25 @@
 # LXQt-LabWC
 
-My config for running Labwc (Window Manager) in an LXQt (Wayland) session.
+Config for running Labwc (Window Manager/Compositor) in an LXQt (Wayland) session.
 
-With the advent of >= LXQt 2.1 you can choose any of several WM's within LXQt for navigating around the desktop. LXQt takes care of powermanagement, theming etc. providing lxpanel (bar), lxqt-runner (launcher), wallpaper slideshow to name a few. Some settings can be made in LXQt Configuration Center the rest are made via config files.
+With the advent of `>=` LXQt 2.1 you can use one of several WM's within LXQt to navigate around the desktop. LXQt provides lxpanel(bar) and lxqt-runner(launcher). Theming, wallpaper slideshow, power management, notifications and scaling are found in LXQt Settings. Shortcuts, monitor settings and screenshots are invoked via ~/.config/labwc/* 
 
-When Raspberry Pi moved from Wayfire WM to LabWC in their Bookworm release Oct '24, I decided use it on my laptop as well. [Labwc](https://labwc.github.io/index.html) is a wlroots-based stacking compositor. Inspired by BunsenLabs (lightweight Debian + Openbox-based distro), it takes a no-frills approach to focus on stacking windows well and rendering some window decorations. The dark window dressing and some other elements of my config are thanks to https://github.com/stefonarch among other sources. 
+[Labwc](https://labwc.github.io/index.html) window compositor takes a no-animation approach, focusing instead on stacking windows well (instead of tiling, you can do that manually with keybindings) whilst rendering some window decorations. 
 
-If you didn't choose LXQt initially, install:
+If you didn't install LXQt initially, these packages have you covered:
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
 
+While you're at it, grab `labwc` (& `playerctl` for media-player shortcuts).
 
-Install `labwc` (also grab `playerctl` for media-player shortcuts).
+Clone and move the `labwc` directory into ~/.config/ 
+```
+git clone https://github.com/gnmearacaun/LXQt-Labwc.git
+```
 
-`git clone https://github.com/gnmearacaun/LXQt-Labwc.git`
-Move the `labwc` directory into ~/.config/ 
-
-In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor put `/usr/bin/labwc` in the input box. Logout and select `LXQt (Wayland)` for your next login. 
-
-
+In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor enter `/usr/bin/labwc` into the input box. 
+Logout and select `LXQt (Wayland)` in the display/login manager for your maiden session. 
 
 ![screenshot](screenshots/2024-12-31.png)
 
@@ -28,16 +28,16 @@ In LXQt Settings > Session Settings > Wayland Settings > Wayland compositor put 
 ![screenshot](screenshots/2024-12-31c.png)
 
 
-### Other things I do when I set up a new build
+### Other Preferences I Have
 
-#### _Caps2esc_ and _Space2meta_
+#### _Space2meta_ and _Caps2esc_ 
 
 - Window managers typically make liberal use of the `super` key to move around. 
-[space2meta](https://gitlab.com/interception/linux/plugins/space2meta) turns your space key into the meta (a.k.a. super) key when chorded to another key. 
+[Space2meta](https://gitlab.com/interception/linux/plugins/space2meta) treats your spacebar as Meta (a.k.a. `Super`) when chorded with another key. 
 
-- [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforming the most useless key ever into the most useful one_ `<Caps_lock>` is `esc` when tapped and `Ctrl` when held down with another key. 
+- [Caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc): _transforms the most useless key ever into the most useful one_ `<Caps_lock>` is `Esc` when tapped and `Ctrl` when held down with another key. 
 
-In Debian `Caps2esc` is available in the repo, however `space2meta` needs to be built manually.
+In Debian `caps2esc` is available in the repo, however `space2meta` needs to be built manually.
 
 ```
 sudo apt-get update
@@ -94,7 +94,7 @@ The fonts you select will be available system-wide.
 
 I use a simple config (no plugins) authored by [jdhao](https://github.com/jdhao) while I'm  setting thing up and before neovim is built. It's also useful for occasional editing as `sudo`.
 
-- The package `vim-gtk3` has better clipboard support than `vim` proper. Wayland users need `wl-clipboard` to copy and paste (both were installed with the previous `apt-get` command). 
+- The package `vim-gtk3` has better clipboard support than `vim` proper. Wayland users need `wl-clipboard` to copy and paste. 
 
 ```
 sudo apt-get install vim-gtk3 wl-clipboard 
@@ -103,13 +103,15 @@ mkdir -p ~/.vim && cd ~/.vim
 git clone https://github.com/jdhao/minimal_vim.git .
 cd && sudo cp -r .vim /root
 ```
-- Tip: add the following line to your `init.vim` to yank to `wl-clipboard`. So you would visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (it's mapped to the `<spacebar>`) and then `y` to copy. Most terminals have `Ctrl+Shift+v` as the paste command. 
+
+
+    Tip: add the following line to your `init.vim` to yank to `wl-clipboard`. So you would visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (it's mapped to the `<spacebar>`) and then `y` to copy. Most terminals have `Ctrl+Shift+v` as the paste command. 
 ```
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 ```
 
 
-#### A Fully Featured Neovim Starterplate 
+#### And A Fully Featured Neovim Starterplate 
 
 To use the awesome [LazyVim](https://www.lazyvim.org/installation) config (see link for instructions) we need to build a newer version of Neovim than Trixie can offer. 
 
@@ -127,17 +129,17 @@ nvim -V1 -v
 
 ```
 
-To make it the default in your `.zshrc`
+To make it the default, add this line to your `.zshrc`
 
 ```
 export EDITOR="nvim"
 ```
 
-Tip: Un/comment lines easily with (`gcc`). I often open nvim just to find a file on my system or to `grep` for a keyword.
+    Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same author, developer/hero [Folke](https://github.com/folke).
 
 #### Install nodejs 
 
-I think this may be necessary for neovim. Utilizing [nodesource](https://github.com/nodesource/distributions), run as root:
+I think this may be still necessary for Neovim. [Nodesource](https://github.com/nodesource/distributions) (run as root):
 
 ```
 sudo su
@@ -169,3 +171,6 @@ sudo rm /usr/local/bin/nvim
 sudo rm -r /usr/local/share/nvim/
 ```
 
+____
+The dark window dressing and some other elements of my config are thanks to https://github.com/stefonarch amongst other sources. 
+____
