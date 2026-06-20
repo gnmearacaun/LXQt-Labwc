@@ -73,19 +73,19 @@ sudo nice -n -20 udevmon -c udevmon.yaml >udevmon.log 2>udevmon.err &
 
 You may have to logout/login to get the effect.
 
-#### Zsh and Zap
+#### Zsh and Zap Plugin Manager 
 
 To set zsh as your default shell, execute the following.
 ```
 sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 ```
-Log out and back in. You're prompt will be basic. Install [zap](https://github.com/zap-zsh/zap) zsh plugin manager (replaces the need for `oh-my-zsh`)
+Log out and back in. You're prompt will be basic. Install [zap](https://github.com/zap-zsh/zap) (replaces `oh-my-zsh`)
 ```
 sudo apt-get install zsh zoxide
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 Reopen the shell, `zap` automajically installs the default plugins. 
-More plugins can be found on the [Zap homepage](https://www.zapzsh.com/) 
+More plugins can be found on the [homepage](https://www.zapzsh.com/) 
 
 #### [Nerdfonts](https://github.com/getnf/getnf)
 
