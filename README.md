@@ -145,17 +145,6 @@ export EDITOR="nvim"
 ```
 
 Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same developer/hero [Folke](https://github.com/folke).
-
-#### Install nodejs 
-
-I think this may be still necessary for Neovim. [Nodesource](https://github.com/nodesource/distributions) (run as root):
-
-```
-sudo su
-curl -fsSL https://deb.nodesource.com/setup_21.x | bash - &&\
-apt-get install -y nodejs
-```
-
 #### To Upgrade Neovim
 
 Later when you want to upgrade, go back into the neovim directory (wherever it's stashed). Assuming you're on the branch you want, to rebuild from scratch and replace the current build:
