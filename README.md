@@ -4,28 +4,28 @@ Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Sess
 
 `>=` LXQt 2.1 supports several Wayland Compositors to control the desktop. LXQt provides lxpanel (the bar) and lxqt-runner (the launcher). Theming, power management, notifications, scaling and wallpaper slideshow are configured in LXQt Settings. 
 
-[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*` 
+[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*`.
 
-If you didn't select LXQt initially, install:
+If you didn't select LXQt Desktop Environment initially, install:
 
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
 ```
 
-Grab `labwc` (& `playerctl` for media-player shortcuts) while you're at it.
+Grab `labwc` while you're at it (& `playerctl` for media-player shortcuts).
 
-Clone this repo. 
+To clone this repo 
 
 ```
 git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 ```
 
-(Move the `labwc` directory into your ~/.config/ directory) 
+Move the `labwc` directory into your ~/.config/ directory. Programs invoked from `autostart` and `rc.xml` may need to be installed separately. 
 
 In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
 enter `/usr/bin/labwc` into the input box. 
 
-Logout and select `LXQt (Wayland)` in the display manager for your session. 
+Logout and select `LXQt (Wayland)` in the display manager for the next session. 
 
 
 ![screenshot](screenshots/2024-12-31.png)
@@ -156,7 +156,7 @@ curl -fsSL https://deb.nodesource.com/setup_21.x | bash - &&\
 apt-get install -y nodejs
 ```
 
-#### Upgrading Neovim
+#### To Upgrade Neovim
 
 Later when you want to upgrade, go back into the neovim directory (wherever it's stashed). Assuming you're on the branch you want, to rebuild from scratch and replace the current build:
 
@@ -167,9 +167,7 @@ cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 ```
 
-#### Rebuilding Neovim
-
-In case you have previously built the image and want to switch branches:
+Btw: In case you want to start over and use a different branch (`stable` for example):
 ```
 cd neovim && sudo cmake --build build/ --target uninstall
 ```
