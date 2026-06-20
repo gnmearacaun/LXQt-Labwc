@@ -6,7 +6,7 @@ Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Sess
 
 [Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*` 
 
-If you didn't install LXQt initially, install:
+If you didn't select LXQt initially, install:
 
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
@@ -20,13 +20,12 @@ Clone this repo.
 git clone https://github.com/gnmearacaun/LXQt-Labwc.git
 ```
 
-Move the `labwc` directory into your ~/.config/ directory. 
+(Move the `labwc` directory into your ~/.config/ directory) 
 
 In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
+enter `/usr/bin/labwc` into the input box. 
 
-Enter `/usr/bin/labwc` in the input box. 
-
-Logout and select `LXQt (Wayland)` in the display manager for your next session. 
+Logout and select `LXQt (Wayland)` in the display manager for your session. 
 
 
 ![screenshot](screenshots/2024-12-31.png)
