@@ -2,11 +2,11 @@
 
 Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Session.
 
-With the advent of `>=` LXQt 2.1 you can use one of several WM's within LXQt to navigate around the desktop. LXQt provides lxpanel(bar) and lxqt-runner(launcher). Theming, wallpaper slideshow, power management, notifications and scaling are found in LXQt Settings. WM shortcuts, monitor settings and screenshots are invoked via ~/.config/labwc/* 
+`>=` LXQt 2.1 supports several Wayland Compositors to control the desktop. LXQt provides lxpanel (the bar) and lxqt-runner (the launcher). Theming, power management, notifications, scaling and wallpaper slideshow are configured in LXQt Settings. 
 
-[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). 
+[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*` 
 
-If you didn't install LXQt initially, these packages have you covered:
+If you didn't install LXQt initially, install:
 
 ```
 lxqt lxqt-config lxqt-policykit lxqt-powermanagement lxqt-wayland-session 
@@ -27,6 +27,7 @@ In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
 Enter `/usr/bin/labwc` in the input box. 
 
 Logout and select `LXQt (Wayland)` in the display manager for your next session. 
+
 
 ![screenshot](screenshots/2024-12-31.png)
 
