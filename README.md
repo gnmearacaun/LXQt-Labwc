@@ -26,7 +26,7 @@ In `LXQt Settings > Session Settings > Wayland Settings > Wayland Compositor`
 
 Enter `/usr/bin/labwc` in the input box. 
 
-Logout and select `LXQt (Wayland)` in the display manager. 
+Logout and select `LXQt (Wayland)` in the display manager for your next session. 
 
 ![screenshot](screenshots/2024-12-31.png)
 
@@ -144,7 +144,7 @@ To make it the default, add this line to your `.zshrc`
 export EDITOR="nvim"
 ```
 
-Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same author, developer/hero [Folke](https://github.com/folke).
+Tip: Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same developer/hero [Folke](https://github.com/folke).
 
 #### Install nodejs 
 
