@@ -2,9 +2,9 @@
 
 - Config for running Labwc (Window Manager/Compositor) within an LXQt Wayland Session.
 
-`>=` LXQt 2.1 supports several Wayland Compositors to control the desktop. LXQt provides lxpanel (the bar) and lxqt-runner (the launcher). Theming, power management, notifications, scaling and wallpaper slideshow are configured in LXQt Settings. 
+`>=` LXQt 2.1 supports several Wayland Compositors to control the desktop. LXQt provides lxpanel (the bar) and lxqt-runner (the launcher) and main menu. Theming, power management, notifications, scaling and wallpaper slideshow are configured in LXQt Settings. 
 
-[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and screenshots are invoked via `~/.config/labwc/*`.
+[Labwc](https://labwc.github.io/index.html) takes a no-animation approach, focusing on stacking windows well whilst rendering some window decorations (tiling is done manually with keybindings as desired). WM shortcuts, monitor settings and keyboard layout are invoked via `~/.config/labwc/*`.
 
 - If you didn't select LXQt Desktop Environment initially, install:
 
@@ -96,7 +96,7 @@ Reopen the shell, `zap` automajically installs the default plugins.
 
 #### [Nerdfonts](https://github.com/getnf/getnf)
 
-Used by zsh and neovim, ranger (file manager) and other tui programs.
+- Includes icons for zsh, neovim, ranger (tui file manager) and other terminal-based programs.
 
 ```
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
@@ -106,9 +106,9 @@ Run `getnf` in the terminal and follow the prompts. The fonts you select will be
 
 #### A Minimal Vim Configuration 
 
-I use a simple config (no plugins) authored by [jdhao](https://github.com/jdhao) while I'm  setting thing up and before neovim is built. It's also useful for occasional editing as `sudo`.
+- Authored by [jdhao](https://github.com/jdhao). It's also useful for occasional editing as `sudo`.
 
-- The package `vim-gtk3` has better clipboard support than `vim` proper. Wayland users need `wl-clipboard` to copy and paste. 
+- The package `vim-gtk3` has better clipboard support than `vim` proper. Waylanders use `wl-clipboard` to copy and paste. 
 
 ```
 sudo apt-get install vim-gtk3 wl-clipboard 
@@ -118,14 +118,13 @@ git clone https://github.com/jdhao/minimal_vim.git .
 cd && sudo cp -r .vim /root
 ```
 
-
 - Add the following line to your `init.vim` to yank to `wl-clipboard`. 
 
 ```
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 ```
 
-- Visually highlight the text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (`,` by default) and then `y` to copy to system clipboard. Most terminals have `Ctrl+Shift+v` as the paste command. 
+- Copy by visually highlighting text with `v` or `shift+v` and the motion keys `h,j,k,l` and press `<leader>` (`,` by default) and then `y` to copy to system clipboard. Most terminals have `Ctrl+Shift+v` as the paste command. 
 
 #### And A Fully Featured Neovim Starterplate 
 
@@ -144,7 +143,7 @@ cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 
 ```
-Make it the default, add this line to your `.zshrc`
+Add this line to your `.zshrc` to make it the default.
 
 ```
 export EDITOR="nvim"
@@ -152,7 +151,7 @@ export EDITOR="nvim"
 
 - Un/comment lines easily with 'gcc'. I often open nvim just to find a file on my system by `grepping` a keyword. Lazyvim displays all keyboard shortcuts after pressing the spacebar (leader key) via a plugin by the same developer/hero [Folke](https://github.com/folke).
 
-Later when you want to upgrade, go back into the neovim directory (wherever it's stashed). Assuming you're on the branch you want, to rebuild from scratch and replace the current build:
+To upgrade later on (assuming you stashed away the `neovim` repo) 
 
 ```
 git pull
@@ -161,7 +160,7 @@ cd build && sudo cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 nvim -V1 -v
 ```
 
-In case you want uninstall or use a different git branch:
+To uninstall or build a different git branch (eg. stable):
 
 ```
 cd neovim && sudo cmake --build build/ --target uninstall
